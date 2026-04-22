@@ -11,7 +11,6 @@ public class Product {
         this.price = price;
     }
 
-    // Getter & Setter (wichtig für Spring!)
     public String getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }
