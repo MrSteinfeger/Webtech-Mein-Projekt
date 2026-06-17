@@ -9,11 +9,16 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class MyController {
 
+    // Hier binden wir dein neues ProductRepository ein
+    private final ProductRepository productRepository;
+
+    public MyController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    // Holt die Daten jetzt direkt LIVE aus der PostgreSQL-Datenbank!
     @GetMapping("/api/products")
     public List<Product> getProducts() {
-        return List.of(
-                new Product("1", "Laptop", 500.00),
-                new Product("2", "Kopfhörer", 150.00)
-        );
+        return productRepository.findAll();
     }
 }
